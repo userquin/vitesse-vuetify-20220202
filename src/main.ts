@@ -4,6 +4,8 @@ import generatedRoutes from 'virtual:generated-pages'
 import { setupLayouts } from 'virtual:generated-layouts'
 import App from './App.vue'
 
+// unocss
+import 'uno.css'
 // windicss layers
 import 'virtual:windi-base.css'
 import 'virtual:windi-components.css'
@@ -13,6 +15,8 @@ import './styles/main.css'
 import 'virtual:windi-utilities.css'
 // windicss devtools support (dev only)
 import 'virtual:windi-devtools'
+// vuetify
+import './styles/vuetify.scss'
 
 const routes = setupLayouts(generatedRoutes)
 
@@ -20,8 +24,8 @@ const routes = setupLayouts(generatedRoutes)
 export const createApp = ViteSSG(
   App,
   { routes, base: import.meta.env.BASE_URL },
-  (ctx) => {
+  async(ctx) => {
     // install all modules under `modules/`
-    Object.values(import.meta.globEager('./modules/*.ts')).forEach(i => i.install?.(ctx))
+    await Promise.all(Object.values(import.meta.globEager('./modules/*.ts')).map(i => i.install?.(ctx)))
   },
 )

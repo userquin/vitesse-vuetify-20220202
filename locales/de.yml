@@ -5,6 +5,7 @@ button:
   home: Startseite
   toggle_dark: Dunkelmodus umschalten
   toggle_langs: Sprachen ändern
+  showDialog: Show Dialog [DE]
 intro:
   desc: Vite Startvorlage mit Vorlieben
   dynamic-route: Demo einer dynamischen Route

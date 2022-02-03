@@ -14,6 +14,9 @@ import VueI18n from '@intlify/vite-plugin-vue-i18n'
 import Inspect from 'vite-plugin-inspect'
 import Prism from 'markdown-it-prism'
 import LinkAttributes from 'markdown-it-link-attributes'
+import Vuetify from '@vuetify/vite-plugin'
+import Unocss from 'unocss/vite'
+import presetIcons from '@unocss/preset-icons'
 
 const markdownWrapperClasses = 'prose prose-sm m-auto text-left'
 
@@ -22,6 +25,7 @@ export default defineConfig({
     alias: {
       '~/': `${path.resolve(__dirname, 'src')}/`,
     },
+    dedupe: ['vue'],
   },
   plugins: [
     Vue({
@@ -98,6 +102,14 @@ export default defineConfig({
       },
     }),
 
+    // https://github.com/antfu/unocss
+    Unocss({
+      presets: [presetIcons()],
+    }),
+
+    // https://github.com/vuetifyjs/vuetify-loader/tree/next/packages/vite-plugin
+    Vuetify({ styles: 'expose' }),
+
     // https://github.com/antfu/vite-plugin-pwa
     VitePWA({
       registerType: 'autoUpdate',
@@ -157,6 +169,7 @@ export default defineConfig({
     include: [
       'vue',
       'vue-router',
+      'vuetify',
       '@vueuse/core',
       '@vueuse/head',
     ],
@@ -170,7 +183,7 @@ export default defineConfig({
     include: ['test/**/*.test.ts'],
     environment: 'jsdom',
     deps: {
-      inline: ['@vue', '@vueuse', 'vue-demi'],
+      inline: ['@vue', '@vueuse', 'vue-demi', 'vuetify'],
     },
   },
 })

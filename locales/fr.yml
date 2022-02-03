@@ -5,6 +5,7 @@ button:
   home: Accueil
   toggle_dark: Basculer en mode sombre
   toggle_langs: Changer de langue
+  showDialog: Show Dialog [FR]
 intro:
   desc: Exemple d'application Vite
   dynamic-route: Démo de route dynamique

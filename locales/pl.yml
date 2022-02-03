@@ -5,6 +5,7 @@ button:
   home: Strona główna
   toggle_dark: Ustaw tryb nocny
   toggle_langs: Zmień język
+  showDialog: Show Dialog [PL]
 intro:
   desc: Opiniowany szablon startowy Vite
   dynamic-route: Demonstracja dynamicznego route

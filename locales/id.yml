@@ -5,6 +5,7 @@ button:
   home: Beranda
   toggle_dark: Ubah ke mode gelap
   toggle_langs: Ubah bahasa
+  showDialog: Show Dialog [ID]
 intro:
   desc: Template awal vite
   dynamic-route: Contoh rute dinamik
